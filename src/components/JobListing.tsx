@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-type JobType = {
-	id: string;
+export type JobType = {
+	id?: string;
 	title: string;
 	type: string;
 	description: string;
