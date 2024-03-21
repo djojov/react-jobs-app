@@ -1,7 +1,12 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from '../assets/images/logo.png';
 
 export default function Navbar() {
+	const linkClass = ({ isActive }: { isActive: boolean }) =>
+		isActive
+			? 'bg-black text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2'
+			: 'text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2';
+
 	return (
 		<>
 			<nav className="bg-indigo-700 border-b border-indigo-500">
@@ -14,15 +19,15 @@ export default function Navbar() {
 							</Link>
 							<div className="md:ml-auto">
 								<div className="flex space-x-2">
-									<Link to="/" className="text-white bg-black hover:bg-gray-900 hover:text-white rounded-md px-3 py-2">
+									<NavLink to="/" className={linkClass}>
 										Home
-									</Link>
-									<Link to="/jobs" className="text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2">
+									</NavLink>
+									<NavLink to="/jobs" className={linkClass}>
 										Jobs
-									</Link>
-									<Link to="/add-job" className="text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2">
+									</NavLink>
+									<NavLink to="/add-job" className={linkClass}>
 										Add Job
-									</Link>
+									</NavLink>
 								</div>
 							</div>
 						</div>
