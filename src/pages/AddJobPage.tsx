@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { JobType } from '../components/JobListing';
 
 export default function AddJobPage({ addJobSubmit }: { addJobSubmit: (newJob: JobType) => void }) {
@@ -33,6 +34,9 @@ export default function AddJobPage({ addJobSubmit }: { addJobSubmit: (newJob: Jo
 		};
 
 		addJobSubmit(newJob);
+
+		toast.success('Job added successfully');
+
 		return navigate('/jobs');
 	};
 
